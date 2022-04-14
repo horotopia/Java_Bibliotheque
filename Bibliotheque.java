@@ -1,41 +1,42 @@
-import java.util.Arrays;
+package om;
 
-public class Bibliotheque {
-    private Document tDocument[] = new Document[4];
-    private int nbDocuments = 0;
-    private String nom;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Vector;
 
-//      Constructor
-    public Bibliotheque(String nom){
-        this.nom = nom;
+public abstract class Document {
+    private String titre;
+    private Date creationDate;
+    private Vector index = new Vector();
+
+//      constructor
+    protected Document(){
+        this.titre = null;
+        this.creationDate = new Date();
     }
-
+    protected Document(String titre) {
+        this.titre = titre;
+        this.creationDate = new Date();
+    }
 //      Getters
-    public Document[] listerDocument() {
-        return tDocument;
+    public String getTitre(){
+        return titre;
     }
-    public int getNbDocuments() {
-        return nbDocuments;
+    public String getcreationDate(){
+        return ""+creationDate;
     }
-    public String getNom() {
-        return nom;
-    }
+    public Vector getIndex() {return index;}
 
-//      Adders
-    public void ajouterDocument(Document document) {
-        this.tDocument[nbDocuments] = document;
-        this.nbDocuments += 1;
+//      Setters
+    public void setTitre(String titre){
+        this.titre = titre;
     }
+    public void setIndex(String type) { this.index.add(type);}
 
 //      Methods
     public String toString() {
-        return "Bibliotheque { " +
-                "tDocument= \n" + tDocument[0] + "\n" +
-                tDocument[1] + "\n" +
-                tDocument[2] + "\n" +
-                tDocument[3] + "\n" +
-                ", nbDocuments=" + nbDocuments +
-                "\n, nom ='" + nom + '\'' +
+        return "Document { Titre= "+getTitre()+
+                ", Date de création= "+ getcreationDate()+
                 " }";
     }
 }
