@@ -42,6 +42,6 @@ class Main {
 //        {
 //            System.out.println(horotopia.document().nextElement());
 //        }
-        System.out.println(horotopia.search("java"));1
+        System.out.println(horotopia.search("java"));
     }
 }
