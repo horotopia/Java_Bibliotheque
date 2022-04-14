@@ -1,3 +1,5 @@
+package om;
+
 public class Livre extends Document{
     private int page;
     private String auteur;
@@ -15,6 +17,7 @@ public class Livre extends Document{
     public String toString() {
         return "Livre {" +
                 "titre=" + getTitre() +
+                ", Index= "+ getIndex()+
                 ", date=" + getcreationDate() +
                 ", page=" + page +
                 ", auteur='" + auteur + '\'' +
