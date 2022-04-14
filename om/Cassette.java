@@ -1,3 +1,5 @@
+package om;
+
 public class Cassette extends Document{
     private String auteur;
     private int duree;
@@ -13,6 +15,7 @@ public class Cassette extends Document{
     public String toString() {
         return "Cassette {" +
                 "titre=" + getTitre() +
+                ", Index= "+ getIndex()+
                 ", date=" + getcreationDate() +
                 ", auteur=" + auteur +
                 ", durée='" + duree + '\'' +
