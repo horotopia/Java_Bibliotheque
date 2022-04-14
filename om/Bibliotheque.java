@@ -20,8 +20,12 @@ public class Bibliotheque {
     }
 
     // ---------- Getters ----------  ----------
-    public Enumeration document() {
-        return this.enu = tDocument.elements();
+    public void document() {
+        this.enu = tDocument.elements();
+        while(enu.hasMoreElements())
+        {
+            System.out.println(enu.nextElement()+"\n");
+        }
     }
     public int getNbDocuments() {
         return nbDocuments;
@@ -39,11 +43,7 @@ public class Bibliotheque {
     // ---------- Methods ----------  ----------
     public String toString()
     {
-        Enumeration enu = document();
-        while(enu.hasMoreElements())
-        {
-            System.out.println(enu.nextElement()+"\n");
-        }
+        this.document();
         return "Bibliotheque { " +
                 ", nbDocuments=" + nbDocuments +
                 "\n, nom ='" + nom + '\'' +
