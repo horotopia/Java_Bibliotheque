@@ -34,14 +34,6 @@ class Main {
         horotopia.ajouterDocument(k8);
         horotopia.ajouterDocument(interview8);
 
-        System.out.println(horotopia.toString()+"\n");
-
-        while (horotopia.document().hasMoreElements())
-            System.out.println(horotopia.document().nextElement());
-//        for(int i=0; i< horotopia.getNbDocuments();i++)
-//        {
-//            System.out.println(horotopia.document().nextElement());
-//        }
-        System.out.println(horotopia.search("java"));
+        horotopia.document();
     }
 }
