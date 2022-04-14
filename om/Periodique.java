@@ -1,3 +1,5 @@
+package om;
+
 public class Periodique extends Document{
     private String frequence;
     private int page;
@@ -14,6 +16,7 @@ public class Periodique extends Document{
     public String toString() {
         return "Périodique { " +
                 "titre=" + getTitre() +
+                ", Index= "+ getIndex()+
                 ", date=" + getcreationDate() +
                 ", frequence=" + frequence +
                 ", page='" + page + '\'' +
