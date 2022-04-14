@@ -1,42 +1,64 @@
 package om;
 
-import java.util.Date;
 import java.util.Enumeration;
 import java.util.Vector;
 
-public abstract class Document {
-    private String titre;
-    private Date creationDate;
-    private Vector index = new Vector();
+public class Bibliotheque {
 
-//      constructor
-    protected Document(){
-        this.titre = null;
-        this.creationDate = new Date();
-    }
-    protected Document(String titre) {
-        this.titre = titre;
-        this.creationDate = new Date();
-    }
-//      Getters
-    public String getTitre(){
-        return titre;
-    }
-    public String getcreationDate(){
-        return ""+creationDate;
-    }
-    public Vector getIndex() {return index;}
+    // on change le tableau statique
+    // private Document tDocument[] = new Document[4];
+    // en tableau dynamique
+    private Vector tDocument = new Vector();
+    private Enumeration<Document> enu;
+    private Vector list = new Vector();
+    private int nbDocuments = 0;
+    private String nom;
 
-//      Setters
-    public void setTitre(String titre){
-        this.titre = titre;
+    // ---------- Constructor ----------  ----------
+    public Bibliotheque(String nom){
+        this.nom = nom;
     }
-    public void setIndex(String type) { this.index.add(type);}
 
-//      Methods
-    public String toString() {
-        return "Document { Titre= "+getTitre()+
-                ", Date de création= "+ getcreationDate()+
+    // ---------- Getters ----------  ----------
+    public Enumeration document() {
+        return this.enu = tDocument.elements();
+    }
+    public int getNbDocuments() {
+        return nbDocuments;
+    }
+    public String getNom() {
+        return nom;
+    }
+
+    // ---------- Adders ----------  ----------
+    public void ajouterDocument(Document document) {
+        this.tDocument.add(document);
+        this.nbDocuments += 1;
+    }
+
+    // ---------- Methods ----------  ----------
+    public String toString()
+    {
+        Enumeration enu = document();
+        while(enu.hasMoreElements())
+        {
+            System.out.println(enu.nextElement()+"\n");
+        }
+        return "Bibliotheque { " +
+                ", nbDocuments=" + nbDocuments +
+                "\n, nom ='" + nom + '\'' +
                 " }";
+    }
+
+    public Vector search(String type)
+    {
+        for (int i = 0; i < tDocument.size(); i++)
+        {
+            if (tDocument.contains(type))
+            {
+                list.addElement(tDocument.get(i));
+            }
+        }
+        return list;
     }
 }
