@@ -1,4 +1,10 @@
+package iu;
+
+import om.*;
+
+
 class Main {
+
     public static void main(String args[]){
         System.out.println("Hello Java");
 
@@ -6,14 +12,21 @@ class Main {
         tonton.setTitre("tata");
         System.out.println("changement de titre : "+tonton.getTitre());
         System.out.println(tonton.toString()+"\n");
+        tonton.setIndex("python");
 
-        Document k7 = new Cassette("toxicity","System of a download", 45);
+        Document k7 = new Cassette("toxicity", "System of a download", 45);
         System.out.println(k7.toString()+"\n");
-        Document k8 = new Cassette("toxicity","System of a download", 45);
+        k7.setIndex("java");
+        Document k8 = new Cassette("Americana","The Off Springs", 65);
         System.out.println(k8.toString()+"\n");
+        k8.setIndex("java");
+        k8.setIndex("python");
 
         Document interview8 = new Periodique("on en a gros !", "quotidien", 25);
         System.out.println(interview8.toString()+"\n");
+        interview8.setIndex("php");
+
+        System.out.println("-----------------------------------");
 
         Bibliotheque horotopia = new Bibliotheque("Horotopia");
         horotopia.ajouterDocument(tonton);
@@ -22,5 +35,13 @@ class Main {
         horotopia.ajouterDocument(interview8);
 
         System.out.println(horotopia.toString()+"\n");
+
+        while (horotopia.document().hasMoreElements())
+            System.out.println(horotopia.document().nextElement());
+//        for(int i=0; i< horotopia.getNbDocuments();i++)
+//        {
+//            System.out.println(horotopia.document().nextElement());
+//        }
+        System.out.println(horotopia.search("java"));1
     }
 }
